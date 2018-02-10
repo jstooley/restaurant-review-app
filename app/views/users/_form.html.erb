@@ -1,0 +1,15 @@
+<%= form_for user do |t|%>
+  <p>
+    <%= t.label :username %>
+    <%= t.text_field :username %>
+  </p>
+  <p>
+    <%= t.label :email %>
+    <%= t.email_field :email %>
+  </p>
+  <p>
+    <%= t.label :password %>
+    <%= t.password_field :password %>
+  </p>
+  <%= t.submit "Finish" %>
+<% end %>
