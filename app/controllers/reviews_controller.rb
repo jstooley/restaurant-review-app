@@ -9,11 +9,15 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = Review.new
+    if params[:user_id] && !User.exists?(params[:user_id])
+      redirect_to login_path, alert: "User not found."
+    else
+      @review = Review.new(user_id: params[:user_id])
+    end
   end
 
   def create
-
+    binding.pry
   end
 
   def edit

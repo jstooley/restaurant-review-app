@@ -4,4 +4,7 @@ class Review < ActiveRecord::Base
 
   validates :title, presence: true
   validates :content, presence: true
+  validates :rating, inclusion: { in: 0..5 }
+  validates :content, length: { maximum: 500 }
+  validates :title, length: { maximum: 50 }
 end
