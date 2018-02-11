@@ -19,4 +19,10 @@ class RestaurantsController < ApplicationController
   def destroy
 
   end
+
+  private
+
+  def review_params
+    params.require(:restaurant).permit(:name)
+  end
 end
