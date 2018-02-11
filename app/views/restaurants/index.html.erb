@@ -1,9 +1,11 @@
 <h1>Restaurants</h1>
 
-<%= link_to "Create New Restaurant", new_restaurant_path %>
+<p><%= link_to "Create New Restaurant", new_restaurant_path %></p>
 
 <% if @restaurants != nil %>
+  <ul>
   <% @restaurants.each do |restaurant| %>
-    <%= restaurant.name %>
+      <li><%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %></li>
   <% end %>
+  </ul>
 <% end %>
