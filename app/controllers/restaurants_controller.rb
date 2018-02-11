@@ -13,7 +13,12 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-
+    @restaurant = Restaurant.create(restaurant_params)
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render "new"
+    end
   end
 
   def destroy
@@ -22,7 +27,7 @@ class RestaurantsController < ApplicationController
 
   private
 
-  def review_params
+  def restaurant_params
     params.require(:restaurant).permit(:name)
   end
 end

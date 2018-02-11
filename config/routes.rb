@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :restaurants
-  resources :reviews, only[:index, :show]
+  resources :reviews, only: [:index, :show]
   resources :food_types
 
   get '/signup' => 'users#new'
