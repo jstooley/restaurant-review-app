@@ -1,10 +1,11 @@
 <nav class="">
   <ul>
-    <li><%= link_to "Home", root_path %></li>
     <% if logged_in? %>
-      <li> Welcome <%= current_user.username %>!</li>
+      <li><%= current_user.username %>!</li>
+      <li><%= link_to "Home", user_path(current_user.username) %></li>
       <li><%= link_to "Sign out", logout_path, method: "destroy" %></li>
     <% else %>
+      <li><%= link_to "Home", root_path %></li>
       <li><%= link_to "Sign up", signup_path %></li>
       <li><%= link_to "sign in", login_path %></li>
     <% end %>

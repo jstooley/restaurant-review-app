@@ -4,11 +4,15 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    require_logged_in
+  end
+
   def create
     @user = User.create(user_params)
     return redirect_to signup_path unless @user.save
     session[:user_id] = @user.id
-    redirect_to root_path
+    redirect_to user_path(current_user.username)
   end
 
   private
