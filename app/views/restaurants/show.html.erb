@@ -7,7 +7,7 @@
   <% end%>
 </ul>
 
-<% if logged_in? %>
+<% if logged_in? && !existing_review?(@restaurant.id)%>
   <%= link_to "Write a Review of #{@restaurant.name }", new_user_review_path(current_user.id, :restaurant_id => @restaurant.id) %>
 <% end %>
 

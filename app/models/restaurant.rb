@@ -8,7 +8,7 @@ class Restaurant < ActiveRecord::Base
   validates :name, uniqueness: true
 
   def average_rating
-    total = 0
+    total = 0.0
     count = 0
 
     self.reviews.each do |review|

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :current_user
   before_action :require_logged_in, only: [:destroy, :update, :edit]
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :existing_review?
 
   def logged_in?
     !!current_user
@@ -10,6 +10,16 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def existing_review?(restaurant_id)
+    exist = false
+    current_user.reviews.each do |review|
+      if review.restaurant_id == restaurant_id.to_i
+        exist = true
+      end
+    end
+    exist
   end
 
   private

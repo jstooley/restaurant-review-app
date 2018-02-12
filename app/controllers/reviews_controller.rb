@@ -10,17 +10,27 @@ class ReviewsController < ApplicationController
 
   def new
     require_logged_in
+    if !existing_review?(params[:restaurant_id])
       @review = Review.new(user_id: params[:user_id])
+    else
+      flash[:notice] = "You already made a review for this restaurant."
+      redirect_to restaurant_path(params[:restaurant_id])
+    end
   end
 
   def create
     require_logged_in
-    @review = Review.create(review_params)
-    @review.restaurant_id = params[:restaurant_id]
-    if @review.save
-      redirect_to restaurant_path(@review.restaurant)
+    if existing_review?(params[:restaurant_id])
+      @review = Review.create(review_params)
+      @review.restaurant_id = params[:restaurant_id]
+      if @review.save
+        redirect_to restaurant_path(@review.restaurant)
+      else
+        render "new"
+      end
     else
-      render "new"
+      flash[:notice] = "You already made a review for this restaurant."
+      redirect_to restaurant_path(params[:restaurant_id])
     end
   end
 
