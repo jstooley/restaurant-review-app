@@ -23,4 +23,16 @@ class Restaurant < ActiveRecord::Base
     end
 
   end
+
+  def self.highest_rated
+    highest_rating = 0
+    best_restaurant = nil
+    self.all.each do |r|
+      if r.average_rating.to_i > highest_rating
+        highest_rating = r.average_rating.to_i
+        best_restaurant = r
+      end
+    end
+    best_restaurant
+  end
 end
