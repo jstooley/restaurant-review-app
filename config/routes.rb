@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/:username', to: 'users#show'
   post '/logout' => 'sessions#destroy'
+  get '/auth/github/callback' => 'sessions#create'
 
 
   resources :users do
