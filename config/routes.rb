@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:index, :destroy]
   resources :food_types, only: [:new]
 
+  get '/highest_rated' => 'restaurants#rating'
   post '/destroy_rf' => 'restaurant_foods#destroy'
   post '/create_food_type' => 'food_types#create'
   get '/signup' => 'users#new'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/:username', to: 'users#show'
   post '/logout' => 'sessions#destroy'
+
 
   resources :users do
     resources :reviews, only: [:index, :show, :new, :create, :edit, :update]

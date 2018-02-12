@@ -13,6 +13,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
   end
 
+  def rating
+    @highest_rated_restaurant = Restaurant.highest_rated
+  end
+
   def create
     require_logged_in
     @restaurant = Restaurant.create(restaurant_params)
