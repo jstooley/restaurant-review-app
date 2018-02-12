@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :restaurants
-  resources :reviews, only: [:index, :show, :destroy]
+  resources :reviews, only: [:index, :destroy]
   resources :food_types, only: [:new]
 
   post '/destroy_rf' => 'restaurant_foods#destroy'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
 
   resources :users do
-    resources :reviews, only: [:new, :create, :edit, :update]
+    resources :reviews, only: [:index, :show, :new, :create, :edit, :update]
   end
 
 

@@ -1,10 +1,16 @@
 class ReviewsController < ApplicationController
 
   def index
-    @reviews = Review.all
+
+    if @user = User.find(params[:user_id])
+      @reviews = @user.reviews
+    else
+      @reviews = Review.all
+    end
   end
 
   def show
+    @user = User.find_by(id: params[:user_id])
     @review = Review.find_by(id: params[:id])
   end
 

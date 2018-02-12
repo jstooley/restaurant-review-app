@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     require_logged_in
+    @users = User.all
   end
 
   def create

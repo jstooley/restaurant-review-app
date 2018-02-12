@@ -1,5 +1,7 @@
 <h1>Welcome to Restaurant Reviews, <%= current_user.username %>!</h1>
 
+<%= render partial: "user_list", locals: {users: @users}  %>
+
 <%= link_to "Restaurants", restaurants_path%>
 
 <% current_user.reviews.each do |review| %>
