@@ -11,9 +11,9 @@ Rails.application.routes.draw do
   post '/create_food_type' => 'food_types#create'
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
-  get '/:username', to: 'users#show'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
+  get '/:username', to: 'users#show'
   post '/logout' => 'sessions#destroy'
 
   resources :users do
