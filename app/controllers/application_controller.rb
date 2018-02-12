@@ -7,12 +7,21 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  private
+
   def require_logged_in
     redirect_to root_path unless logged_in?
   end
 
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  def asssign_food_type_to_restaurant(food_type_ids, restaurant_id)
+    food_type_ids.reject(&:empty?).each do |ft_id|
+      @rf = RestaurantFood.new
+      @rf.restaurant_food_type_set(ft_id, restaurant_id)
+    end
   end
 
 end

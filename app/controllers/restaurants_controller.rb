@@ -16,17 +16,12 @@ class RestaurantsController < ApplicationController
   def create
     require_logged_in
     @restaurant = Restaurant.create(restaurant_params)
-
     if @restaurant.save
-      params[:restaurant][:food_type_ids].reject(&:empty?).each do |ft_id|
-        @rf = RestaurantFood.new
-        @rf.restaurant_food_type_set(ft_id, @restaurant.id)
-      end
+      asssign_food_type_to_restaurant(params[:restaurant][:food_type_ids],@restaurant.id)
       redirect_to restaurant_path(@restaurant)
     else
       render "new"
     end
-
   end
 
   def destroy
