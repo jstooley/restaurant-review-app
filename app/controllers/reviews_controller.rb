@@ -9,15 +9,12 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    if params[:user_id] && !User.exists?(params[:user_id])
-      redirect_to login_path, alert: "User not found."
-    else
+    require_logged_in
       @review = Review.new(user_id: params[:user_id])
-    end
   end
 
   def create
-
+    require_logged_in
     @review = Review.create(review_params)
     @review.restaurant_id = params[:restaurant_id]
     if @review.save
@@ -28,10 +25,12 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    require_logged_in
     @review = Review.find(params[:user_id])
   end
 
   def update
+    require_logged_in
     @review = Review.find(params[:user_id])
 
     @review.update(review_params)
@@ -43,6 +42,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    require_logged_in
     @review = Review.find(params[:id])
     @review.destroy
     flash[:notice] = "Review deleted."

@@ -9,10 +9,12 @@ class RestaurantsController < ApplicationController
   end
 
   def new
+    require_logged_in
     @restaurant = Restaurant.new
   end
 
   def create
+    require_logged_in
     @restaurant = Restaurant.create(restaurant_params)
     if @restaurant.save
       redirect_to restaurant_path(@restaurant)
@@ -22,7 +24,11 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
-
+    require_logged_in
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.destroy
+    flash[:notice] = "Restaurant deleted."
+    redirect_to user_path(current_user.id)
   end
 
   private

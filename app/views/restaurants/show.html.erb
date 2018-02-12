@@ -1,6 +1,6 @@
 <h1><%= @restaurant.name %></h1>
 <%= link_to "Write a Review of #{@restaurant.name }", new_user_review_path(current_user.id, :restaurant_id => @restaurant.id) %>
-<!-- put all this resaurants reviews here -->
+<%= link_to "Add Food Style", new_food_type_path(:restaurant_id => @restaurant.id) %>
 
 <% @restaurant.reviews.each do |review| %>
   <h3><%= review.title %></h3>

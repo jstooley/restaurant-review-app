@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   resources :users
   resources :restaurants
   resources :reviews, only: [:index, :show, :destroy]
-  resources :food_types
+  resources :food_types, only: [:new]
 
+  post '/create_food_type' => 'food_types#create'
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   get '/:username', to: 'users#show'

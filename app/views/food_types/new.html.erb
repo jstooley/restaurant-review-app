@@ -1,0 +1,8 @@
+
+<%= form_for @food_type, url: create_food_type_path(restaurant_id: params[:restaurant_id]) do |t|%>
+  <p>
+    <%= t.label :name %>
+    <%= t.text_field :name %>
+  </p>
+  <%= t.submit "Add Food Type"%>
+<% end %>

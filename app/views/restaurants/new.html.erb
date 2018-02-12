@@ -1,7 +1,12 @@
 <%= form_for @restaurant do |t| %>
+  <p>
+    <%= t.label :name %>
+    <%= t.text_field :name %>
+  </p>
+  <p>
+    <%= collection_check_boxes(:restaurant, @restaurant , FoodType.all, :id, :name) %>
+  </p>
 
-  <%= t.label :name %>
-  <%= t.text_field :name %>
   <%= t.submit "Add Restaurant"%>
 
 <% end %>
