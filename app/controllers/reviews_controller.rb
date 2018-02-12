@@ -17,7 +17,14 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    binding.pry
+
+    @review = Review.create(review_params)
+    @review.restaurant_id = params[:restaurant_id]
+    if @review.save
+      redirect_to restaurant_path(@review.restaurant)
+    else
+      render "new"
+    end
   end
 
   def edit
@@ -35,6 +42,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :content, :rating)
+    params.require(:review).permit(:title, :content, :rating, :user_id)
   end
 end

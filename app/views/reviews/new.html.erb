@@ -1,6 +1,6 @@
 <h1>Review</h1>
 
-<%= form_for @review do |t| %>
+<%= form_for @review, url: user_reviews_path([:restaurant_id] => params[:restaurant_id]) do |t| %>
 
   <p>
     <%= t.label :title %>

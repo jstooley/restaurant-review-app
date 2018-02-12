@@ -1,4 +1,4 @@
 <h1><%= @restaurant.name %></h1>
-<%= link_to "Write a Review of #{@restaurant.name }", new_user_review_path(current_user.id) %>
+<%= link_to "Write a Review of #{@restaurant.name }", new_user_review_path(current_user.id, :restaurant_id => @restaurant.id) %>
 <!-- put all this resaurants reviews here -->
 <p>Reviews Here </p>
