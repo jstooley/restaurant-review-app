@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
   def create
     require_logged_in
-    if existing_review?(params[:restaurant_id])
+    if !existing_review?(params[:restaurant_id])
       @review = Review.create(review_params)
       @review.restaurant_id = params[:restaurant_id]
       if @review.save
