@@ -6,7 +6,10 @@
     <li><%= link_to ft.name, destroy_rf_path(:food_type_id => ft.id ,:restaurant_id => @restaurant.id), method: "destroy"%></li>
   <% end%>
 </ul>
-<%= link_to "Write a Review of #{@restaurant.name }", new_user_review_path(current_user.id, :restaurant_id => @restaurant.id) %>
+
+<% if logged_in? %>
+  <%= link_to "Write a Review of #{@restaurant.name }", new_user_review_path(current_user.id, :restaurant_id => @restaurant.id) %>
+<% end %>
 
 <% @restaurant.reviews.each do |review| %>
   <h3><%= review.title %></h3>

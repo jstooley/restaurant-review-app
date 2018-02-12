@@ -6,4 +6,21 @@ class Restaurant < ActiveRecord::Base
 
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  def average_rating
+    total = 0
+    count = 0
+
+    self.reviews.each do |review|
+      total += review.rating
+      count += 1
+    end
+
+    unless count == 0
+      total / count
+    else
+      "No Reviews"
+    end
+
+  end
 end

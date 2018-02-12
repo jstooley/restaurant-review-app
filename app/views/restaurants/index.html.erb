@@ -1,11 +1,12 @@
 <h1>Restaurants</h1>
-
-<p><%= link_to "Create New Restaurant", new_restaurant_path %></p>
-
+<% if logged_in? %>
+  <p><%= link_to "Create New Restaurant", new_restaurant_path %></p>
+<% end %>
 <% if @restaurants != nil %>
   <ul>
   <% @restaurants.each do |restaurant| %>
-      <li><%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %></li>
+      <li><%= link_to "#{restaurant.name}", restaurant_path(restaurant.id) %> -
+      <%= restaurant.average_rating %></li>
   <% end %>
   </ul>
 <% end %>

@@ -25,12 +25,10 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    require_logged_in
     @review = Review.find(params[:user_id])
   end
 
   def update
-    require_logged_in
     @review = Review.find(params[:user_id])
 
     @review.update(review_params)
@@ -42,7 +40,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    require_logged_in
     @review = Review.find(params[:id])
     @review.destroy
     flash[:notice] = "Review deleted."

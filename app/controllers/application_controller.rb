@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :current_user
+  before_action :require_logged_in, only: [:destroy, :update, :edit]
   helper_method :current_user, :logged_in?
 
   def logged_in?
@@ -14,7 +15,7 @@ class ApplicationController < ActionController::Base
   private
 
   def require_logged_in
-    redirect_to root_path unless logged_in?
+    redirect_to(login_path) unless logged_in?
   end
 
   def asssign_food_type_to_restaurant(food_type_ids, restaurant_id)
