@@ -22,4 +22,4 @@
 
 .byebug_history
 
-/config/initializers/omniauth
+**/omniauth
