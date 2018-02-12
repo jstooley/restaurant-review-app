@@ -8,4 +8,5 @@
   <b><%= review.rating %></b>
   <p><%= review.content %></p>
   <%= link_to "Edit Review?", edit_user_review_path(review.id) %>
+  <%= link_to "Destroy Review?", review,method: :delete,  data:{confirm: "Are you sure?"}%>
 <% end %>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :restaurants
-  resources :reviews, only: [:index, :show]
+  resources :reviews, only: [:index, :show, :destroy]
   resources :food_types
 
   get '/signup' => 'users#new'
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
 
   resources :users do
-    resources :reviews, only: [:new, :create, :edit, :update, :destroy]
+    resources :reviews, only: [:new, :create, :edit, :update]
   end
 
 
