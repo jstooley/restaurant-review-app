@@ -1,18 +1,4 @@
 <h1>Review</h1>
-
 <%= form_for @review, url: user_reviews_path([:restaurant_id] => params[:restaurant_id]) do |t| %>
-
-  <p>
-    <%= t.label :title %>
-    <%= t.text_field :title %>
-  </p>
-  <%= t.hidden_field :user_id %>
-  <p>
-    <%= t.label :rating %>
-    <%= t.range_field :rating , :in => 0..5, :step => '1'%>
-  </p>
-  <p>
-    <%= t.text_area :content %>
-  </p>
-  <%= t.submit "Finish" %>
+  <%= render partial: "form", locals: {t: t}  %>
 <% end %>

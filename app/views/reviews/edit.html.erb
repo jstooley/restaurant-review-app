@@ -1,0 +1,4 @@
+<h1>Edit Review</h1>
+<%= form_for @review, url: user_review_path do |t| %>
+  <%= render partial: "form", locals: {t: t}  %>
+<% end %>

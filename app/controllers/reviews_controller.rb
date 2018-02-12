@@ -28,11 +28,18 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find_by(id: params[:id])
+    @review = Review.find(params[:user_id])
   end
 
   def update
+    @review = Review.find(params[:user_id])
 
+    @review.update(review_params)
+    if @review.save
+      redirect_to user_path(current_user.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -42,6 +49,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:title, :content, :rating, :user_id)
+    params.require(:review).permit(:title, :content, :rating, :user_id, :restaurant_id)
   end
 end
