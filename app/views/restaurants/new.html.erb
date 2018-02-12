@@ -4,7 +4,7 @@
     <%= t.text_field :name %>
   </p>
   <p>
-    <%= collection_check_boxes(:restaurant, @restaurant , FoodType.all, :id, :name) %>
+    <%= collection_check_boxes(:restaurant , :food_type_ids ,FoodType.all, :id, :name) %>
   </p>
 
   <%= t.submit "Add Restaurant"%>
