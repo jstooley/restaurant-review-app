@@ -17,7 +17,7 @@ class Restaurant < ActiveRecord::Base
     end
 
     unless count == 0
-      total / count
+      "#{total / count} Star's"
     else
       "No Reviews"
     end

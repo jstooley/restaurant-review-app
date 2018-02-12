@@ -1,4 +1,4 @@
-<h1><%= @restaurant.name %></h1>
+<h1><%= @restaurant.name %> - <%=  @restaurant.average_rating %></h1>
 
 <h3><%= link_to "Food Styles", new_food_type_path(:restaurant_id => @restaurant.id) %></h3>
 <ul>
