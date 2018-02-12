@@ -3,7 +3,7 @@
 <h3><%= link_to "Food Styles", new_food_type_path(:restaurant_id => @restaurant.id) %></h3>
 <ul>
   <% @restaurant.food_types.each do |ft| %>
-    <li><%= ft.name %></li>
+    <li><%= link_to ft.name, destroy_rf_path(:food_type_id => ft.id ,:restaurant_id => @restaurant.id), method: "destroy"%></li>
   <% end%>
 </ul>
 <%= link_to "Write a Review of #{@restaurant.name }", new_user_review_path(current_user.id, :restaurant_id => @restaurant.id) %>

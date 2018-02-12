@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:index, :show, :destroy]
   resources :food_types, only: [:new]
 
+  post '/destroy_rf' => 'restaurant_foods#destroy'
   post '/create_food_type' => 'food_types#create'
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
