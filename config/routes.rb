@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   get '/auth/github' => 'github_outh'
-  match '/auth/github/callback' => 'authintications#create', :via => [:get, :post]
+  match '/auth/github/callback' => 'authentications#create', :via => [:get, :post]
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/:username', to: 'users#show'
