@@ -12,11 +12,12 @@ Rails.application.routes.draw do
   post '/create_food_type' => 'food_types#create'
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
+  get '/auth/github' => 'github_outh'
+  match '/auth/github/callback' => 'authintications#create', :via => [:get, :post]
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/:username', to: 'users#show'
   post '/logout' => 'sessions#destroy'
-  get '/auth/github/callback' => 'sessions#create'
 
 
   resources :users do

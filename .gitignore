@@ -22,4 +22,6 @@
 
 .byebug_history
 
-**/omniauth
+# hide github key's
+/config/application.yml
+
