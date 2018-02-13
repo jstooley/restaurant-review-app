@@ -23,5 +23,5 @@
 .byebug_history
 
 # hide github key's
-/config/application.yml
+config/application.yml
 
