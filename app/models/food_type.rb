@@ -3,6 +3,5 @@ class FoodType < ActiveRecord::Base
   has_many :restaurants, through: :restaurant_foods
 
   validates :name, presence: true
-  validates :name, uniqueness: true
 
 end

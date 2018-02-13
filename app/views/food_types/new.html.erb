@@ -1,4 +1,4 @@
-
+<%= render partial: "users/errors", locals: {variable: @food_type}  %>
 <%= form_for @food_type, url: create_food_type_path(restaurant_id: params[:restaurant_id]) do |t|%>
   <p>
     <%= t.label :name %>

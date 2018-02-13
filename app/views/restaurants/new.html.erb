@@ -1,3 +1,5 @@
+<%= render partial: "users/errors", locals: {variable: @restaurant}  %>
+
 <%= form_for @restaurant do |t| %>
   <p>
     <%= t.label :name %>

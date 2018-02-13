@@ -9,7 +9,7 @@ class FoodTypesController < ApplicationController
     require_logged_in
     @food_type = FoodType.find_or_create_by(food_type_params)
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @restaurant_foods = RestaurantFood.new(food_type_id: @food_type.id, restaurant_id: @restaurant.id )
+    @restaurant_foods = RestaurantFood.find_or_create_by(food_type_id: @food_type.id, restaurant_id: @restaurant.id )
     if @restaurant_foods.save
       redirect_to restaurant_path(@restaurant.id)
     else

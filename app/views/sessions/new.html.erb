@@ -1,3 +1,7 @@
+<% if flash[:notice] %>
+  <div class="notice"><p style="color:red;" ><%= flash[:notice] %></p></div>
+<% end %>
+
 <%= form_for @user, :url => url_for(controller: 'sessions', action: 'create')  do |t|%>
   <p>
     <%= t.label :username %>
