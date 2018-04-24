@@ -29,6 +29,7 @@ class RestaurantsController < ApplicationController
   end
 
   def destroy
+    require_logged_in
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy
     flash[:notice] = "Restaurant deleted."
