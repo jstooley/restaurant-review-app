@@ -56,6 +56,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    require_logged_in
     @review = Review.find(params[:id])
     @review.destroy
     flash[:notice] = "Review deleted."
