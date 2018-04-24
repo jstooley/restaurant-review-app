@@ -1,9 +1,13 @@
 <h1>Welcome to Restaurant Reviews, <%= current_user.username %>!</h1>
 
+<ul>
+  <li><%= link_to "Restaurants", restaurants_path%>
+    <ul><%= link_to "Highest Rated Restaurant", highest_rated_path%></ul>
+  </li>
+</ul>
+
 <%= render partial: "user_list", locals: {users: @users}  %>
 
-<%= link_to "Restaurants", restaurants_path%>
-<%= link_to "Highest Rated Restaurant", highest_rated_path%>
 <% current_user.reviews.each do |review| %>
   <h3><%= review.restaurant.name %></h3>
   <h5><%= review.title %></h5>
