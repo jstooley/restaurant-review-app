@@ -1,6 +1,5 @@
 <h1>Welcome To Restaurant Reviews</h1>
 
-<%= render partial: "/users/user_list", locals: {users: @users}  %>
+<%= render partial: "restaurants/restaurant_list" %>
 
-<%= link_to "Restaurants", restaurants_path%>
-<%= link_to "Highest Rated Restaurant", highest_rated_path%>
+<%= render partial: "/users/user_list", locals: {users: @users}  %>

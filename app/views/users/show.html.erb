@@ -1,10 +1,6 @@
 <h1>Welcome to Restaurant Reviews, <%= current_user.username %>!</h1>
 
-<ul>
-  <li><%= link_to "Restaurants", restaurants_path%>
-    <ul>-<%= link_to "Highest Rated Restaurant", highest_rated_path%></ul>
-  </li>
-</ul>
+<%= render partial: "restaurants/restaurant_list" %>
 
 <%= render partial: "user_list", locals: {users: @users}  %>
 
