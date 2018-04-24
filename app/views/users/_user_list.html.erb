@@ -1,3 +1,9 @@
-<% @users.each do |user| %>
-  <%= link_to "#{user.username}'s reviews" , user_reviews_path(user.id) unless current_user == user %>
-<% end %>
+<div>
+  <ul>
+    <% @users.each do |user| %>
+      <% unless current_user == user %>
+        <li><%= link_to "#{user.username}'s reviews" , user_reviews_path(user.id) %></li>
+      <% end %>
+    <% end %>
+  <ul>
+</div>
