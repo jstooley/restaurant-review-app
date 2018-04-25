@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :reviews
-  has_many :restaurants, through: :restaurant_foods
+  has_many :restaurants, through: :reviews
 
   validates :password, presence: true
   validates :username, presence: true
