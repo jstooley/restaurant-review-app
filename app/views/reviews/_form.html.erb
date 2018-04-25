@@ -1,14 +1,14 @@
 <p>
-    <%= t.label :title %>
-    <%= t.text_field :title %>
+  <%= t.label :title %>
+  <%= t.text_field :title %>
 </p>
-<%= t.hidden_field :user_id %>
-<%= t.hidden_field :restaurant_id %>
+  <%= t.hidden_field :user_id %>
+  <%= t.hidden_field :restaurant_id %>
 <p>
-    <%= t.label :rating %>
-    <%= t.range_field :rating , :in => 0..5, :step => '1'%>
+  <%= t.label :rating %>
+  <%= t.range_field :rating , :in => 0..5, :step => '1'%>
 </p>
 <p>
-    <%= t.text_area :content %>
+  <%= t.text_area :content %>
 </p>
 <%= t.submit "Finish" %>
