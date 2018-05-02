@@ -51,6 +51,7 @@ class Restaurant < ActiveRecord::Base
         highest_restaurant = r
         highest_count = count
       end
+
     end
     highest_restaurant
   end
