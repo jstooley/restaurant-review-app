@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :food_types, only: [:new]
 
   get '/highest_rated' => 'restaurants#rating'
+  get '/most_reviewed' => 'restaurants#most_reviewed'
   post '/destroy_rf' => 'restaurant_foods#destroy'
   post '/create_food_type' => 'food_types#create'
   get '/signup' => 'users#new'
