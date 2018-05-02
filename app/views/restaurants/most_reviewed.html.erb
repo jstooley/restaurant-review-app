@@ -1,1 +1,3 @@
-<%= @most_reviewed_restaurant.name %>-<%=@most_reviewed_restaurant.average_rating %>
+<h1><%= @most_reviewed_restaurant.name %></h1>
+<b><%=@most_reviewed_restaurant.review_count %> Review's</b>
+<%= render partial: "reviews/reviews_list", locals: {restaurant: @most_reviewed_restaurant}  %>

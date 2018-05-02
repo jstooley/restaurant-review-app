@@ -1,0 +1,6 @@
+<% restaurant.reviews.each do |review| %>
+  <h3><%= review.title %></h3>
+  <b><%= review.rating %></b>
+  <p><%= review.content %></p>
+  <%= render partial: "reviews/edit_delete", locals: {review: review}  %>
+<% end %>

@@ -36,20 +36,20 @@ class Restaurant < ActiveRecord::Base
     best_restaurant
   end
 
+  def review_count
+    self.reviews.count
+  end
+
   def self.most_reviewed
-    highest_count = 0
-    count = 0
     highest_restaurant = ""
+    highest_count = 0
     self.all.each do |r|
-      r.reviews.each do |review|
-        count += 1
-      end
+
+      count = r.review_count
+
       if count >= highest_count
-        highest_restaurant = r.name
+        highest_restaurant = r
         highest_count = count
-        count = 0
-      else
-        count = 0
       end
     end
     highest_restaurant
