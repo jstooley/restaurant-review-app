@@ -18,10 +18,10 @@ as well as leave a rating of 0-5 of the experiance there.
     will only allow you to review a restaurant once 
     once you have made a review you can edit or delete the review
     
- Development
+ # Development
  After checking out the repo, run bundle install to install dependencies
     
  To run this app on your local machine, run  rails server. 
     
- License
+ # License
  The app is available as open source under the terms of the MIT License.
