@@ -3,7 +3,7 @@
 This app is a place for people to enter restaurants that they have eaten at and tell people the types of food they server 
 as well as leave a rating of 0-5 of the experiance there. 
 
-# ignup / login
+# signup / login
 you can create a username and password or log in using your github account
 
 # navigation 
